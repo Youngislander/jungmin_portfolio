@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500&family=Poiret+One&family=Roboto+Mono:wght@100;300;400;500&display=swap" rel="stylesheet">    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+            color:#222
+        }
+        body{
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight:200
+        }
+        ul{
+            list-style:none;
+        }
+
+
+        .header{
+            padding:20px;
+            font-size:12px;
+            position:fixed;
+            top:0;
+            left:0;
+            text-align:center;
+            width: 100%;
+            
+        }
+        .header span:nth-child(1){
+            float:left;
+        }
+        .header span:nth-child(2){
+            
+        }
+        .header span:nth-child(3){
+            float:right;
+
+        }
+        .footer{
+            position:fixed;
+            bottom:0;
+            left:0;
+            width:100%;
+            text-align:center;
+            font-size:12px;
+            font-family:'돋움';
+            padding:20px 0;
+            color:rgb(155, 155, 155)
+        }
+        .main_vis{
+            position:fixed;
+            display:table;
+            height: 100%; top: 0; left: 0; width: 100%;
+        }
+        .main_vis .inner{
+            display: table-cell;
+            vertical-align:middle;
+            padding:10%;
+        }
+
+        .main_vis .main_bg{
+            background-image:url(wave.jpg);
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: cover;
+            padding-bottom:30vh;
+            animation-duration: 100s;
+            animation-name: loop;
+        }
+        @keyframes loop {
+            0%{
+                background-position: 0 0;
+            }
+            50%{
+                background-position: 0 100%;
+            }
+            100%{
+                background-position: 0 0;
+            }
+        }
+
+        .main_vis h1{
+            text-align: center;
+            font-weight:300;
+            padding-bottom: 100px;
+            letter-spacing: 15px;
+            font-family: 'Poiret One', cursive;
+
+        }
+        .main_vis h1 span{
+            padding:0 20px
+        }
+        .main_vis .dsc{
+            width:50%;
+            padding:20px 0;
+            line-height:1.5;
+            font-size:14px;
+        }
+        
+        .works{
+            position: absolute;
+            top:100vh;
+            width: 100%;
+            background:#f1f1f1;
+            padding:50px;
+        }
+        .works > ul > li{
+            width:33.33%;
+            float:left;
+            padding:10px;
+            position:relative;
+        }
+        .works > ul > li:hover .bg_img{
+            transform:scale(1.1);
+        }
+        .works > ul > li:hover .circle{
+            opacity:1
+        }
+        .works > ul > li:hover .bg{
+            opacity:1
+        }
+        .works .inner{
+            background: #fff;
+        }
+        .works .img_wrap{
+            position:relative;
+            overflow:hidden;
+            padding-bottom:56%
+        }
+        .works .bg_img{
+            position:absolute;
+            top: 0;left: 0;width: 100%;height: 100%;
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-position: center;
+            transition: 0.3s ease-in-out
+        }
+        .works li:nth-child(1) .bg_img{
+            background-image: url(1m3.png);
+        }
+        .works li:nth-child(2) .bg_img{
+            background-image: url(dove3.png);
+        }
+        .works li:nth-child(3) .bg_img{
+            background-image: url(kodak2.png);
+        }
+        .works li:nth-child(4) .bg_img{
+            background-image: url(eco3.png);
+        }
+        .works li:nth-child(5) .bg_img{
+            background-image: url(dancegram.png);
+        }
+        .works li:nth-child(6) .bg_img{
+            background-image: url(dancegram2.png);
+        }
+        .works li:nth-child(7) .bg_img{
+            background-image: url(movie.png);
+        }
+        .works .txt_wrap{
+            padding:20px;
+        }
+        .works .txt_wrap{
+        overflow: hidden;
+    }
+    .works .txt_wrap strong{
+        font-weight:500;
+        font-size:16px;
+        line-height:1.5
+    }
+    .works .date{
+        font-size:12px;
+        overflow:hidden;
+        padding-bottom:30px;
+    }
+    .works .date span{
+        float:right;
+    }
+    .works .etc{
+        border-top:1px solid #f1f1f1;
+        padding-top: 20px;
+    }
+    .works .etc li{
+        float:left;
+        color:white;
+        padding: 3px 3px;
+        border-radius:10px;
+        line-height: normal;
+        font-size: 8px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        background: rgb(196, 196, 196);
+        margin: 0 5px;
+    }
+    .works .etc li.icon1{}
+    .works .etc li.icon2{}
+    .works .etc li.icon3{}
+    .works .etc li.icon4{}
+    .icon5{background: #000;}
+    .icon6{background: #000;}
+    .icon7{background: #000;}
+    .icon8{background: #000;}
+    
+    .img_wrap .circle{
+        width:50px;
+        height:50px;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        border:1px solid #fff;
+        border-radius:50%;
+        background-image: url(link.svg);
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position: center;
+        opacity:0;
+        transition:0.3s ease
+    }
+    .img_wrap .bg{
+        width:100%;
+        height:100%;
+        background: rgba(0, 0, 0, 0.368);
+        position:absolute;
+        top:0;
+        left:0;
+        opacity: 0;
+    }
+
+
+@media screen and (max-width:1024px){
+    .main_vis h1 span{display:block} 
+    .main_vis .inner{padding:0 5%}
+    .works{
+        padding:25px 20px;
+    }
+    .works > ul > li{
+        width:50%;
+
+    }
+}
+@media screen and (max-width:768px){
+    .main_vis h1{
+        padding-bottom: 50px;
+    }
+    .main_vis .dsc{
+        width:100%
+    }
+    .works{
+        padding:20px 15px;
+    }
+    .works > ul > li{
+        width:100%;
+
+    }
+}
+
+.reactLogoWrap{
+    position:absolute;
+    z-index:1;
+    top:0;
+    right:0;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background: #000000;
+    box-shadow: 0 0 10px 3px #0103051e;
+}
+.reactLogo{
+    position: absolute;
+    z-index: 2;
+    top: 5px;
+    right: 5px;
+    width: 60px;
+    height: 60px;
+    background-image: url(reactI_icon.svg);
+    background-repeat: no-repeat;
+    background-size: 120%;
+}
+
+    </style>
+    <div class="header">
+        <span>2020</span>
+        <span>Portfolio</span>
+        <span>Contact</span>
+    </div>
+    <div class="main">
+        <div class="main_vis">
+            <div class="inner">
+                <h1><span>JUNGMIN'S</span><span>PROJECT</span></h1>
+                <div class="main_bg"></div>
+                <p class="dsc">
+                    상상을 현실로 만들고 싶은 Creative developer 이정민 입니다. <br>
+                    새로움을 즐기며 함께 성장해 나가는 개발자가 되겠습니다.
+                </p>
+            </div>
+        </div>
+<style>
+  
+
+</style>
+        <div class="works">
+            <ul>
+                <li>
+                    <a href="https://ecstatic-tereshkova-2f6bd0.netlify.app/" target="_blank">
+                        <div class="inner">
+                            <div class="img_wrap">
+                                <div class="bg_img"></div>
+                                <div class="bg"></div>
+                                <div class="circle"></div>
+                            </div>
+                        <div class="txt_wrap">
+                            <!-- <em>Publishing</em> -->
+                            <strong>1M renewel</strong>
+                            <p>Responsive website</p>
+                            <div class="date">
+                                <span>10, 2020</span> 
+                            </div>
+                            <div class="etc">
+                                <ul>
+                                    <li class="icon1">
+                                        HTML
+                                    </li>
+                                    <li class="icon2">
+                                        CSS
+                                    </li>
+                                    <li class="icon3">
+                                        JAVASCRIPT
+                                    </li>
+                                    <li class="icon4">
+                                        JQUERY
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://upbeat-wescoff-d333b1.netlify.app/" target="_blank">
+                        <div class="inner">
+                            <div class="img_wrap">
+                                <div class="bg_img"></div>
+                                <div class="bg"></div>
+                                <div class="circle"></div>
+                            </div>
+                        <div class="txt_wrap">
+                            <!-- <em>Publishing</em> -->
+                            <strong>Dove renewel</strong>
+                            <p>PC website</p>
+                            <div class="date">
+                                <span>10, 2020</span> 
+                            </div>
+                            <div class="etc">
+                                <ul>
+                                    <li class="icon1">
+                                        HTML
+                                    </li>
+                                    <li class="icon2">
+                                        CSS
+                                    </li>
+                                    <li class="icon3">
+                                        JAVASCRIPT
+                                    </li>
+                                    <li class="icon4">
+                                        JQUERY
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://gifted-lewin-16bfcb.netlify.app/" target="_blank">
+                        <div class="inner">
+                            <div class="img_wrap">
+                                <div class="bg_img"></div>
+                                <div class="bg"></div>
+                                <div class="circle"></div>
+                            </div>
+                        <div class="txt_wrap">
+                            <!-- <em>Publishing</em> -->
+                            <strong>Kodak renewel</strong>
+                            <p>Mobile website</p>
+                            <div class="date">
+                                <span>10, 2020</span> 
+                            </div>
+                            <div class="etc">
+                                <ul>
+                                    <li class="icon1">
+                                        HTML
+                                    </li>
+                                    <li class="icon2">
+                                        CSS
+                                    </li>
+                                    <li class="icon3">
+                                        JAVASCRIPT
+                                    </li>
+                                    <li class="icon4">
+                                        JQUERY
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <div class="reactLogoWrap">
+                        <div class="reactLogo"></div>
+                    </div>
+                    <a href="https://awesome-ramanujan-dc61b1.netlify.app/" target="_blank">
+                        <div class="inner">
+                            <div class="img_wrap">
+                                <div class="bg_img"></div>
+                                <div class="bg"></div>
+                                <div class="circle"></div>
+                            </div>
+                        <div class="txt_wrap">
+                            <!-- <em>Publishing</em> -->
+                            <strong>Recycle dictionary</strong>
+                            <p>Responsive website using react</p>
+                            <div class="date">
+                                <span>10, 2020</span> 
+                            </div>
+                            <div class="etc">
+                                <ul>
+                                    <li class="icon1">
+                                        HTML
+                                    </li>
+                                    <li class="icon2">
+                                        CSS
+                                    </li>
+                                    <li class="icon3">
+                                        JAVASCRIPT
+                                    </li>
+                                    <li class="icon4">
+                                        REACT
+                                    </li>
+                                    <li class="icon4">
+                                        PRISMA
+                                    </li>
+                                    <li class="icon4">
+                                        GRAPHQL
+                                    </li>
+                                    <li class="icon4">
+                                        APOLLO
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="reactLogoWrap">
+                        <div class="reactLogo"></div>
+                    </div>
+                    <a href="https://sharp-northcutt-23da05.netlify.app/" target="_blank">
+                        <div class="inner">
+                            <div class="img_wrap">
+                                <div class="bg_img"></div>
+                                <div class="bg"></div>
+                                <div class="circle"></div>
+                            </div>
+                        <div class="txt_wrap">
+                            <!-- <em>Publishing</em> -->
+                            <strong>Dancegram</strong>
+                            <p>Instagram style website using react</p>
+                            <div class="date">
+                                <span>10, 2020</span> 
+                            </div>
+                            <div class="etc">
+                                <ul>
+                                    <li class="icon1">
+                                        HTML
+                                    </li>
+                                    <li class="icon2">
+                                        CSS
+                                    </li>
+                                    <li class="icon3">
+                                        JAVASCRIPT
+                                    </li>
+                                    <li class="icon4">
+                                        REACT
+                                    </li>
+                                    <li class="icon4">
+                                        PRISMA
+                                    </li>
+                                    <li class="icon4">
+                                        GRAPHQL
+                                    </li>
+                                    <li class="icon4">
+                                        APOLLO
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="reactLogoWrap">
+                        <div class="reactLogo"></div>
+                    </div>
+                    <a href="https://sharp-northcutt-23da05.netlify.app/" target="_blank">
+                        <div class="inner">
+                            <div class="img_wrap">
+                                <div class="bg_img"></div>
+                                <div class="bg"></div>
+                                <div class="circle"></div>
+                            </div>
+                        <div class="txt_wrap">
+                            <!-- <em>Publishing</em> -->
+                            <strong>Dancegram mobile app</strong>
+                            <p>Mobile app using react native</p>
+                            <div class="date">
+                                <span>10, 2020</span> 
+                            </div>
+                            <div class="etc">
+                                <ul>
+                                    <li class="icon1">
+                                        HTML
+                                    </li>
+                                    <li class="icon2">
+                                        CSS
+                                    </li>
+                                    <li class="icon3">
+                                        JAVASCRIPT
+                                    </li>
+                                    <li class="icon4">
+                                        REACT NATIVE
+                                    </li>
+                                    <li class="icon4">
+                                        PRISMA
+                                    </li>
+                                    <li class="icon4">
+                                        GRAPHQL
+                                    </li>
+                                    <li class="icon4">
+                                        APOLLO
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="reactLogoWrap">
+                        <div class="reactLogo"></div>
+                    </div>
+                    <a href="https://clever-spence-6ef27b.netlify.app/" target="_blank">
+                        <div class="inner">
+                            <div class="img_wrap">
+                                <div class="bg_img"></div>
+                                <div class="bg"></div>
+                                <div class="circle"></div>
+                            </div>
+                        <div class="txt_wrap">
+                            <!-- <em>Publishing</em> -->
+                            <strong>Movie search</strong>
+                            <p>Movie search website using react</p>
+                            <div class="date">
+                                <span>10, 2020</span> 
+                            </div>
+                            <div class="etc">
+                                <ul>
+                                    <li class="icon1">
+                                        HTML
+                                    </li>
+                                    <li class="icon2">
+                                        CSS
+                                    </li>
+                                    <li class="icon3">
+                                        JAVASCRIPT
+                                    </li>
+                                    <li class="icon4">
+                                        REACT
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<style>
+    .footer .down-arrow{     
+        display: block;
+        margin: 20px auto;
+        width: 12px;
+        height: 12px;
+        background-image: url(down-arrow.svg);
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+</style>
+    <div class="footer">
+        <p class="copyright">
+            Copyrightⓒ2020 All rights reserved.
+        </p>
+        <span class="down-arrow"></span>
+    </div>
+</body>
+</html>
