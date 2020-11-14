@@ -33,7 +33,7 @@
             left:0;
             text-align:center;
             width: 100%;
-            
+            z-index:2
         }
         .header span:nth-child(1){
             float:left;
@@ -104,6 +104,7 @@
             padding:20px 0;
             line-height:1.5;
             font-size:14px;
+            float:left;
         }
         
         .works{
@@ -285,12 +286,23 @@
     background-repeat: no-repeat;
     background-size: 120%;
 }
-
+    .contact_box{
+        width: 260px;
+        height: 55px;
+        float: right;
+        padding-top:20px;
+        font-size: 10px;
+        text-align:right;
+    }
+    .contact_box strong{
+        margin-right:5px;
+    }
     </style>
     <div class="header">
         <span>2020</span>
         <span>Portfolio</span>
-        <span>Contact</span>
+        <span class="contact_txt">Contact</span>
+        </div>
     </div>
     <div class="main">
         <div class="main_vis">
@@ -301,8 +313,56 @@
                     상상을 현실로 만들고 싶은 Creative developer 이정민 입니다. <br>
                     새로움을 즐기며 함께 성장해 나가는 개발자가 되겠습니다.
                 </p>
+<style>
+    .contact_box{
+        position:relative;
+        margin-right:10px;
+    }
+
+    .contact_box div:nth-child(1) .stick{
+        z-index:-1;
+        position: absolute;
+        top: 17px;
+        left: 84px;
+        height: 40px;
+        width: 0px;
+        background: black;
+        transition: 0.5s ease;
+    }
+    
+    .contact_box.on div:nth-child(1) .stick{
+        z-index:-1;
+        position: absolute;
+        padding: 0 5px;
+        top: 17px;
+        left: 84px;
+        height: 40px;
+        width: 184px;
+        background: black;
+        transition: 0.5s ease;
+
+    }
+    .contact_box.on{
+        color:white;
+    }
+</style>
+                <div class="contact_box">
+                    <div class="email"><strong>Email</strong><i class="stick"></i> yjmnopainnogain@gmail.com</div>
+                    <div class="phone"><strong>Phone</strong><i class="stick"></i>010.9660.0468</div>
+                </div>
             </div>
         </div>
+<script>
+    const contactBtn = document.querySelector(".contact_txt");
+    const contactText = document.querySelector(".contact_box");
+
+    contactBtn.addEventListener("mouseenter", function(e){
+        contactText.setAttribute("class", "contact_box on");
+    })
+    contactBtn.addEventListener("mouseout", function(e){
+        contactText.setAttribute("class", "contact_box");
+    })
+</script>
 <style>
   
 
