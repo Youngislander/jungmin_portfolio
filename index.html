@@ -440,7 +440,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://gifted-lewin-16bfcb.netlify.app/" target="_blank">
+                    <a class="kodak">
                         <div class="inner">
                             <div class="img_wrap">
                                 <div class="bg_img"></div>
@@ -474,7 +474,6 @@
                         </div>
                     </a>
                 </li>
-
                 <li>
                     <div class="reactLogoWrap">
                         <div class="reactLogo"></div>
@@ -657,6 +656,13 @@
             </ul>
         </div>
     </div>
+    <script>
+        const resizeKodak = document.querySelector(".kodak");
+        resizeKodak.addEventListener("click", function(e){
+            const myWindow = window.open("https://gifted-lewin-16bfcb.netlify.app/", "mywWindow", "resizable")
+            myWindow.resizeTo(375, 667);
+        }) 
+    </script>
 <style>
     .footer .down-arrow{     
         display: block;
